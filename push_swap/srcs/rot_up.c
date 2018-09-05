@@ -1,47 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rot_up.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/04 08:27:58 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/09/05 14:32:31 by ktwomey          ###   ########.fr       */
+/*   Created: 2018/09/05 13:31:03 by ktwomey           #+#    #+#             */
+/*   Updated: 2018/09/05 14:42:58 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-int	main(int argc, char **argv)
+t_stack	ra(t_stack a)
 {
-	t_stack	stack;
-	char	**str;
 	int		i;
+	int		top;
 
-	i = 1;
-	str = NULL;
-	stack.count_a = 0;
-	stack.count_b = 0;
-	stack.a = malloc(BUFF_SIZE);
-	stack.b = malloc(BUFF_SIZE);
-	if (argc > 2)
-	{
-		str = &argv[i];
-		stack = stack_a(stack, str, i);
-		i++;
-	}
-	else 
-	{
-		str = ft_strsplit(argv[argc - 1], ' ');
-		stack = stack_a(stack, str, 0);
-	}
-	stack = rra(stack);
 	i = 0;
-	while (i < stack.count_a)
+	top = a.a[0];
+	while (i < a.count_a)
 	{
-		printf("a[%d] : %d\n", i, stack.a[i]);
+		a.a[i] = a.a[i + 1];
 		i++;
 	}
-	return (1);
+	a.a[a.count_a - 1] = top;
+	return (a);
+}
+
+t_stack rb(t_stack b)
+{
+	int		i;
+	int		top;
+
+	i = 0;
+	top = b.b[0];
+	while (i < b.count_b)
+	{
+		b.b[i] = b.b[i + 1];
+		i++;
+	}
+	b.b[b.count_b - 1] = top;
+	return (b);
+}
+
+t_stack rr(t_stack stack)
+{
+	stack = ra(stack);
+	stack = rb(stack);
+	return (stack);
 }

@@ -1,40 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rot_down.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/04 08:16:58 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/09/05 13:59:24 by ktwomey          ###   ########.fr       */
+/*   Created: 2018/09/05 14:21:50 by ktwomey           #+#    #+#             */
+/*   Updated: 2018/09/05 14:43:00 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <libc.h>
 
-t_stack	sa(t_stack a)
+t_stack rra(t_stack a)
 {
+	int	bottom;
+	int	i;
 	int	temp;
 
-	temp = a.a[n];
-	a.a[n] = a.a[n + 1];
-	a.a[n + 1] = temp;
+	i = a.count_a - 1;
+	bottom = a.a[a.count_a - 1];
+	while (i > 0)
+	{
+		a.a[i] = a.a[i - 1];
+		i--;
+	}
+	a.a[0] = bottom;
+	return (a);
 }
 
-t_stack	sb(t_stack b)
+t_stack rrb(t_stack b)
 {
-	int	temp;
+	int	bottom;
+	int	i;
 
-	temp = b.b[0];
-	b.b[0] = b.b[1];
-	b.b[1] = temp;
+	i = a.count_a - 1;
+	bottom = a.a[a.count_a - 1];
+	while (i > 0)
+	{
+		a.a[i] = a.a[i - 1];
+		i--;
+	}
+	a.a[0] = bottom;
 	return (b);
 }
 
-t_stack	ss(t_stack stack)
+t_stack rrr(t_stack stack)
 {
-	stack = sa(stack);
-	stack = sb(stack);
+	stack = rra(stack);
+	stack = rrb(stack);
 	return (stack);
 }
