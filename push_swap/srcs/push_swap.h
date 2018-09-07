@@ -6,7 +6,7 @@
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 08:18:01 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/09/05 14:42:52 by ktwomey          ###   ########.fr       */
+/*   Updated: 2018/09/07 15:31:02 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,11 @@ t_stack		rr(t_stack stack);
 t_stack		rra(t_stack a);
 t_stack		rrb(t_stack b);
 t_stack		rrr(t_stack stack);
+t_stack		sort_three(t_stack a);
+t_stack		sorting(t_stack stack);
+void		error(t_stack stack);
+void		input(char **str);
+int			ft_find(t_stack a);
+t_stack		ft_order(t_stack stack);
 
 #endif

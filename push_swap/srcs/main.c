@@ -6,7 +6,7 @@
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 08:27:58 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/09/05 14:32:31 by ktwomey          ###   ########.fr       */
+/*   Updated: 2018/09/07 15:30:59 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,15 @@ int	main(int argc, char **argv)
 	stack.b = malloc(BUFF_SIZE);
 	if (argc > 2)
 	{
-		str = &argv[i];
-		stack = stack_a(stack, str, i);
+		input(str = &argv[i]);
+		stack = stack_a(stack, &argv[i], i);
 		i++;
 	}
 	else 
 	{
-		str = ft_strsplit(argv[argc - 1], ' ');
+		input(str = ft_strsplit(argv[argc - 1], ' '));
 		stack = stack_a(stack, str, 0);
 	}
-	stack = rra(stack);
-	i = 0;
-	while (i < stack.count_a)
-	{
-		printf("a[%d] : %d\n", i, stack.a[i]);
-		i++;
-	}
+	stack = ft_order(stack);
 	return (1);
 }

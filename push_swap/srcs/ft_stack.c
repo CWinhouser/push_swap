@@ -6,11 +6,51 @@
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 08:50:42 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/09/05 13:30:22 by ktwomey          ###   ########.fr       */
+/*   Updated: 2018/09/07 15:30:39 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	error(t_stack stack)
+{
+	int	i;
+	int	n;
+
+	i = 0;
+	while (i != stack.count_a)
+	{
+		n = i + 1;
+		while (n != stack.count_a)
+		{
+			if (stack.a[i] == stack.a[n])
+			{
+				ft_putendl("Error");
+				exit (0);
+			}
+			n++;
+		}
+		i++;
+	}
+}
+
+void	input(char **str)
+{
+	int		i;
+	int		test;
+	char	*new;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!(ft_isdigit(*str[i])) && !(*str[i] == '-'))
+		{
+			ft_putendl("Error");
+			exit(0);
+		}
+		i++;
+	}
+}
 
 t_stack	stack_a(t_stack a, char **str, int i)
 {
@@ -26,6 +66,7 @@ t_stack	stack_a(t_stack a, char **str, int i)
 		}
 		n++;
 	}
+	error(a);
 	return (a);
 }
 
@@ -48,6 +89,7 @@ t_stack	pb(t_stack stack)
 	}
 	stack.count_b++;
 	stack.count_a--;
+	ft_putendl("pb");
 	return (stack);
 }
 
@@ -70,5 +112,6 @@ t_stack pa(t_stack stack)
 	}
 	stack.count_a++;
 	stack.count_b--;
+	ft_putendl("pa");
 	return (stack);
 }

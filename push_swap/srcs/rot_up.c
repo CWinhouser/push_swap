@@ -6,7 +6,7 @@
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 13:31:03 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/09/05 14:42:58 by ktwomey          ###   ########.fr       */
+/*   Updated: 2018/09/07 13:15:04 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_stack	ra(t_stack a)
 		i++;
 	}
 	a.a[a.count_a - 1] = top;
+	ft_putendl("ra");
 	return (a);
 }
 
@@ -41,6 +42,7 @@ t_stack rb(t_stack b)
 		i++;
 	}
 	b.b[b.count_b - 1] = top;
+	ft_putendl("rb");
 	return (b);
 }
 
@@ -48,5 +50,6 @@ t_stack rr(t_stack stack)
 {
 	stack = ra(stack);
 	stack = rb(stack);
+	ft_putendl("rr");
 	return (stack);
 }
