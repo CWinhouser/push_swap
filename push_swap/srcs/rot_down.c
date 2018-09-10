@@ -6,17 +6,16 @@
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 14:21:50 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/09/07 13:12:22 by ktwomey          ###   ########.fr       */
+/*   Updated: 2018/09/10 14:57:46 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack rra(t_stack a)
+t_stack	rra(t_stack a)
 {
 	int	bottom;
 	int	i;
-	int	temp;
 
 	i = a.count_a - 1;
 	bottom = a.a[a.count_a - 1];
@@ -30,7 +29,7 @@ t_stack rra(t_stack a)
 	return (a);
 }
 
-t_stack rrb(t_stack b)
+t_stack	rrb(t_stack b)
 {
 	int	bottom;
 	int	i;
@@ -47,7 +46,7 @@ t_stack rrb(t_stack b)
 	return (b);
 }
 
-t_stack rrr(t_stack stack)
+t_stack	rrr(t_stack stack)
 {
 	stack = rra(stack);
 	stack = rrb(stack);

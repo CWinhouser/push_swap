@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 08:18:01 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/09/10 14:57:20 by ktwomey          ###   ########.fr       */
+/*   Updated: 2018/09/10 14:52:19 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_H
+# define CHECKER_H
 # include "../includes/libft/libft.h"
+# include "../includes/get_next_line/get_next_line.h"
 # include <stdio.h>
-# define BUFF_SIZE 4096
 
 typedef struct	s_stack
 {
@@ -43,5 +43,8 @@ void			input(char **str);
 void			is_int(char **str);
 int				ft_find(t_stack a);
 t_stack			ft_order(t_stack stack);
+t_stack			checker(char *str, t_stack stack);
+t_stack			checking(t_stack stack);
+void			line(t_stack stack);
 
 #endif

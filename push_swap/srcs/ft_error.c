@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/04 08:27:58 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/09/10 14:56:00 by ktwomey          ###   ########.fr       */
+/*   Created: 2018/09/10 09:59:30 by ktwomey           #+#    #+#             */
+/*   Updated: 2018/09/10 14:55:34 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-int	main(int argc, char **argv)
+void	is_int(char **str)
 {
-	t_stack	stack;
-	char	**str;
+	int	i;
 
-	str = NULL;
-	stack.count_a = 0;
-	stack.count_b = 0;
-	stack.a = malloc(BUFF_SIZE);
-	stack.b = malloc(BUFF_SIZE);
-	if (argc > 2)
+	i = 0;
+	while (str[i])
 	{
-		input(str = &argv[1]);
-		stack = stack_a(stack, &argv[1]);
+		if (ft_atol(str[i]) < -2147483648 ||
+				ft_atol(str[i]) > 2147483647)
+		{
+			ft_putendl("Error");
+			exit(0);
+		}
+		i++;
 	}
-	else
-	{
-		input(str = ft_strsplit(argv[argc - 1], ' '));
-		stack = stack_a(stack, str);
-		free(str);
-	}
-	stack = ft_order(stack);
-	return (1);
 }

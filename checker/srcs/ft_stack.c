@@ -6,11 +6,11 @@
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 08:50:42 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/09/10 14:56:36 by ktwomey          ###   ########.fr       */
+/*   Updated: 2018/09/10 14:48:08 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	error(t_stack stack)
 {
@@ -88,7 +88,6 @@ t_stack	pb(t_stack stack)
 	}
 	stack.count_b++;
 	stack.count_a--;
-	ft_putendl("pb");
 	return (stack);
 }
 
@@ -111,6 +110,5 @@ t_stack	pa(t_stack stack)
 	}
 	stack.count_a++;
 	stack.count_b--;
-	ft_putendl("pa");
 	return (stack);
 }

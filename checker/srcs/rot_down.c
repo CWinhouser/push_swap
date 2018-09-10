@@ -1,55 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rot_up.c                                           :+:      :+:    :+:   */
+/*   rot_down.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 13:31:03 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/09/10 14:58:34 by ktwomey          ###   ########.fr       */
+/*   Created: 2018/09/05 14:21:50 by ktwomey           #+#    #+#             */
+/*   Updated: 2018/09/10 14:49:25 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-t_stack	ra(t_stack a)
+t_stack	rra(t_stack a)
 {
-	int		i;
-	int		top;
+	int	bottom;
+	int	i;
 
-	i = 0;
-	top = a.a[0];
-	while (i < a.count_a)
+	i = a.count_a - 1;
+	bottom = a.a[a.count_a - 1];
+	while (i > 0)
 	{
-		a.a[i] = a.a[i + 1];
-		i++;
+		a.a[i] = a.a[i - 1];
+		i--;
 	}
-	a.a[a.count_a - 1] = top;
-	ft_putendl("ra");
+	a.a[0] = bottom;
 	return (a);
 }
 
-t_stack	rb(t_stack b)
+t_stack	rrb(t_stack b)
 {
-	int		i;
-	int		top;
+	int	bottom;
+	int	i;
 
-	i = 0;
-	top = b.b[0];
-	while (i < b.count_b)
+	i = b.count_a - 1;
+	bottom = b.a[b.count_a - 1];
+	while (i > 0)
 	{
-		b.b[i] = b.b[i + 1];
-		i++;
+		b.a[i] = b.a[i - 1];
+		i--;
 	}
-	b.b[b.count_b - 1] = top;
-	ft_putendl("rb");
+	b.a[0] = bottom;
 	return (b);
 }
 
-t_stack	rr(t_stack stack)
+t_stack	rrr(t_stack stack)
 {
-	stack = ra(stack);
-	stack = rb(stack);
-	ft_putendl("rr");
+	stack = rra(stack);
+	stack = rrb(stack);
 	return (stack);
 }

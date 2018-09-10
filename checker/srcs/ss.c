@@ -1,55 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rot_up.c                                           :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 13:31:03 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/09/10 14:58:34 by ktwomey          ###   ########.fr       */
+/*   Created: 2018/09/04 08:16:58 by ktwomey           #+#    #+#             */
+/*   Updated: 2018/09/10 10:44:59 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-t_stack	ra(t_stack a)
+t_stack	sa(t_stack a)
 {
-	int		i;
-	int		top;
+	int	temp;
 
-	i = 0;
-	top = a.a[0];
-	while (i < a.count_a)
-	{
-		a.a[i] = a.a[i + 1];
-		i++;
-	}
-	a.a[a.count_a - 1] = top;
-	ft_putendl("ra");
+	temp = a.a[0];
+	a.a[0] = a.a[1];
+	a.a[1] = temp;
 	return (a);
 }
 
-t_stack	rb(t_stack b)
+t_stack	sb(t_stack b)
 {
-	int		i;
-	int		top;
+	int	temp;
 
-	i = 0;
-	top = b.b[0];
-	while (i < b.count_b)
-	{
-		b.b[i] = b.b[i + 1];
-		i++;
-	}
-	b.b[b.count_b - 1] = top;
-	ft_putendl("rb");
+	temp = b.b[0];
+	b.b[0] = b.b[1];
+	b.b[1] = temp;
 	return (b);
 }
 
-t_stack	rr(t_stack stack)
+t_stack	ss(t_stack stack)
 {
-	stack = ra(stack);
-	stack = rb(stack);
-	ft_putendl("rr");
+	stack = sa(stack);
+	stack = sb(stack);
 	return (stack);
 }
